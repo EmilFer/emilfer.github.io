@@ -16,7 +16,6 @@ function generateBackdrop() {
     canvas.width = window.innerWidth;
     canvas.height = element.offsetHeight;
 
-
     var minBoxSize = Math.floor(Math.min(canvas.height, canvas.width) / 20);
     var boxAmount = canvas.height * 5;
     var horizontals = Math.ceil(canvas.width / minBoxSize);
@@ -31,25 +30,12 @@ function generateBackdrop() {
     }
 
     drawLeaves(boxes, ctx);
-    //drawTrees(trees, ctx);
 }
 
 function drawLeaves(boxes, ctx) {
     var r = randomIntInRange(1, 3);
     for (var i = 0; i < boxes.length; i++) {
-        var box = boxes[i];
-        ctx.fillStyle = box.color;
-        switch (r) {
-            case 1:
-                drawCircle(box.x, box.y, box.size, ctx);
-                break;
-            case 2:
-                drawTriangle(box.x, box.y, box.size, ctx);
-                break;
-            case 3:
-                drawSquare(box.x, box.y, box.size, ctx);
-                break;
-        }
+        boxes[i].draw(r, ctx);
     }
 }
 
@@ -73,10 +59,6 @@ function drawCircle(x, y, size, ctx) {
 
 function drawSquare(x, y, size, ctx) {
     ctx.fillRect(x, y, size, size);
-}
-
-function drawTrees() {
-
 }
 
 function randomInRange(min, max) {
@@ -120,5 +102,20 @@ class Box {
         this.y = y;
         this.size = size;
         this.color = color;
+    }
+
+    draw(r, ctx) {
+        ctx.fillStyle = this.color;
+        switch (r) {
+            case 1:
+                drawCircle(this.x, this.y, this.size, ctx);
+                break;
+            case 2:
+                drawTriangle(this.x, this.y, this.size, ctx);
+                break;
+            case 3:
+                drawSquare(this.x, this.y, this.size, ctx);
+                break;
+        }
     }
 }
