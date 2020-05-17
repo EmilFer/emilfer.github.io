@@ -16,7 +16,7 @@ function generateBackdrop() {
     canvas.width = window.innerWidth;
     canvas.height = element.offsetHeight;
 
-    var minBoxSize = Math.floor(canvas.height / 15);
+    var minBoxSize = Math.floor(canvas.height / 20);
     var boxAmount = canvas.height * 5;
     var horizontals = Math.ceil(canvas.width / minBoxSize);
     var verticals = Math.ceil(canvas.height / minBoxSize);
@@ -59,7 +59,7 @@ function randomBiasedIntInRange(min, max) {
 
 function selectSize() {
     var r = Math.random();
-    if (r < 0.1) {
+    if (r < 0.05) {
         return 3;
     }
     if (r < 0.4) {
