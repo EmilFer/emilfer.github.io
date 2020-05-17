@@ -16,14 +16,14 @@ function generateBackdrop() {
     canvas.width = window.innerWidth;
     canvas.height = element.offsetHeight;
 
-    var minBoxSize = Math.floor(Math.sqrt(canvas.width));
-    var boxAmount = Math.floor(minBoxSize * 5);
+    var minBoxSize = Math.floor(canvas.height / 15);
+    var boxAmount = canvas.height * 5;
     var horizontals = Math.ceil(canvas.width / minBoxSize);
     var verticals = Math.ceil(canvas.height / minBoxSize);
 
     while (boxes.length < boxAmount) {
         var x = randomIntInRange(0, horizontals) * minBoxSize;
-        var y = randomIntInRange(0, verticals) * minBoxSize;
+        var y = randomBiasedIntInRange(0, verticals) * minBoxSize;
         var size = selectSize() * minBoxSize;
         var color = randomLeafColor();
         boxes.push(new Box(x, y, size, color));
@@ -48,6 +48,13 @@ function randomInRange(min, max) {
 function randomIntInRange(min, max) {
     var r = randomInRange(min - 1, max)
     return Math.floor(r) + 1;
+}
+
+function randomBiasedIntInRange(min, max) {
+    var r = Math.random();
+    r = Math.sqrt(Math.sqrt(r));
+    var val = min + (max - min) * r;
+    return Math.floor(val) + 1;
 }
 
 function selectSize() {
