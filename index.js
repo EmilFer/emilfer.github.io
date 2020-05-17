@@ -42,7 +42,7 @@ function drawLeaves(boxes, ctx) {
 function drawTriangle(x, y, size, ctx) {
     var angle = Math.random() * Math.PI * 2;
     ctx.beginPath();
-    ctx.moveTo(x + Math.sin(angle) * size / 1.5, y + Math.cos(angle) * size / 1.5);
+    ctx.moveTo(x + Math.sin(angle) * size, y + Math.cos(angle) * size);
     for (var i = 0; i < 3; i++) {
         angle += Math.PI * 2 / 3;
         ctx.lineTo(x + Math.sin(angle) * size, y + Math.cos(angle) * size)
@@ -58,7 +58,15 @@ function drawCircle(x, y, size, ctx) {
 }
 
 function drawSquare(x, y, size, ctx) {
-    ctx.fillRect(x, y, size, size);
+    var angle = Math.random() * Math.PI * 2;
+    ctx.beginPath();
+    ctx.moveTo(x + Math.sin(angle) * size, y + Math.cos(angle) * size);
+    for (var i = 0; i < 4; i++) {
+        angle += Math.PI / 2;
+        ctx.lineTo(x + Math.sin(angle) * size, y + Math.cos(angle) * size)
+    }
+    ctx.closePath();
+    ctx.fill();
 }
 
 function randomInRange(min, max) {
