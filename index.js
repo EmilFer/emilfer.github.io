@@ -30,15 +30,53 @@ function generateBackdrop() {
         boxes.push(new Box(x, y, size, color));
     }
 
-    drawBackdrop(boxes, ctx);
+    drawLeaves(boxes, ctx);
+    //drawTrees(trees, ctx);
 }
 
-function drawBackdrop(boxes, ctx) {
+function drawLeaves(boxes, ctx) {
+    var r = randomIntInRange(1, 3);
     for (var i = 0; i < boxes.length; i++) {
         var box = boxes[i];
         ctx.fillStyle = box.color;
-        ctx.fillRect(box.x, box.y, box.size, box.size);
+        switch (r) {
+            case 1:
+                drawCircle(box.x, box.y, box.size, ctx);
+                break;
+            case 2:
+                drawTriangle(box.x, box.y, box.size, ctx);
+                break;
+            case 3:
+                drawSquare(box.x, box.y, box.size, ctx);
+                break;
+        }
     }
+}
+
+function drawTriangle(x, y, size, ctx) {
+    var angle = Math.random() * Math.PI * 2;
+    ctx.beginPath();
+    ctx.moveTo(x + Math.sin(angle) * size / 1.5, y + Math.cos(angle) * size / 1.5);
+    for (var i = 0; i < 3; i++) {
+        angle += Math.PI * 2 / 3;
+        ctx.lineTo(x + Math.sin(angle) * size, y + Math.cos(angle) * size)
+    }
+    ctx.closePath();
+    ctx.fill();
+}
+
+function drawCircle(x, y, size, ctx) {
+    ctx.beginPath();
+    ctx.arc(x, y, size / 1.5, 0, 2 * Math.PI);
+    ctx.fill();
+}
+
+function drawSquare(x, y, size, ctx) {
+    ctx.fillRect(x, y, size, size);
+}
+
+function drawTrees() {
+
 }
 
 function randomInRange(min, max) {
