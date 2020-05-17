@@ -16,7 +16,8 @@ function generateBackdrop() {
     canvas.width = window.innerWidth;
     canvas.height = element.offsetHeight;
 
-    var minBoxSize = Math.floor(canvas.height / 20);
+
+    var minBoxSize = Math.floor(Math.min(canvas.height, canvas.width) / 20);
     var boxAmount = canvas.height * 5;
     var horizontals = Math.ceil(canvas.width / minBoxSize);
     var verticals = Math.ceil(canvas.height / minBoxSize);
