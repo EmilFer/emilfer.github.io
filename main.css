@@ -28,15 +28,38 @@ h1 {
 }
 
 #skype-link {
+    display: block;
+    width: 240px;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 50px;
+    margin: auto;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    background: rgb(0,194,255);
+    background: linear-gradient(90deg, rgba(0,194,255,1) 0%, rgba(0,212,255,1) 100%);
+    border-radius: 25px;
+    color: black;
+}
 
+#skype-link:hover {
+    background: rgb(0,194,255);
+    background: linear-gradient(90deg, rgba(0,180,255,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+#skype-link:visited {
+    color: black;
 }
 
 #help {
-
+    text-align: center;
+    font-size: 20px;
 }
 
 #phone {
-    
+    text-decoration: none;
+    color: #020202;
 }
 
 #backdrop {
@@ -55,17 +78,36 @@ h1 {
 }
 
 @media only screen and (max-width: 800px) {
+    .centered {
+        top: 20%;
+        transform: translate(-50%, -20%);
+    }
+}
+
+@media only screen and (max-width: 750px) {
     h1 {
-        font-size: 48px;
+        font-size: 40px;
     }
 
-    p {
+    #time {
         font-size: 24px;
     }
 
     .centered {
         top: 25%;
         transform: translate(-50%, -25%);
+    }
+
+    #skype-link {
+        width: 200px;
+        height: 40px;
+        font-size: 20px;
+        line-height: 40px;
+        border-radius: 20px;
+    }
+
+    #backdrop {
+        height: 15%;
     }
 }
 
