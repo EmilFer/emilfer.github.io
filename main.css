@@ -64,6 +64,7 @@ h1 {
     text-decoration: none;
     color: #020202;
     white-space: nowrap;
+    border-bottom: 1px #020202 solid;
 }
 
 #backdrop {
