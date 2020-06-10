@@ -22,9 +22,16 @@ h1 {
     height: 100%;
 }
 
-#time {
+#text {
     text-align: center;
     font-size: 32px;
+}
+
+#image {
+    width: 400px;
+    display: block;
+    margin: 0 auto 0 auto;
+    border-radius: 1em;
 }
 
 #skype-link {
