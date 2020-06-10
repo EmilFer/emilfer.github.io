@@ -1,9 +1,9 @@
 window.onload = function() {
-    generateBackdrop();
+    //generateBackdrop();
 };
 
 window.onresize = function() {
-    generateBackdrop();
+    //generateBackdrop();
 }
 
 function generateBackdrop() {
